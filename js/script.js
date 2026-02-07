@@ -11,7 +11,7 @@ const db = {
             name: "City Health Office", 
             head: "Dr. Ivy Marie Yrastorza", 
             contact: "health@bacoor.gov.ph",
-            image: "health.jpg" 
+            image: "health.JPG" 
         },
         { 
             name: "City Engineering", 
