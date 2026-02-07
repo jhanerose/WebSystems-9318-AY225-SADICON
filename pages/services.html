@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Bacoor City LGU</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/branding/logo.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <h2 class="page-title">Online Services</h2>
+        
+        <div class="grid services-grid" style="margin-bottom: 3rem;">
+            
+            <div class="card service-card" onclick="selectService('Business Permit Assistance')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h3>Business Permit</h3>
+                <p>Application for New and Renewal of Business Permits.</p>
+            </div>
+
+            <div class="card service-card" onclick="selectService('Building Permit')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-helmet-safety"></i>
+                </div>
+                <h3>Building Permit</h3>
+                <p>Engineering clearance and occupancy permits.</p>
+            </div>
+
+            <div class="card service-card" onclick="selectService('Health Certificate')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </div>
+                <h3>Health Cert</h3>
+                <p>Sanitary permits and health cards for employees.</p>
+            </div>
+
+            <div class="card service-card" onclick="selectService('Real Property Tax')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-landmark"></i>
+                </div>
+                <h3>Property Tax</h3>
+                <p>Assessment and payment of Real Property Taxes (RPT).</p>
+            </div>
+
+            <div class="card service-card" onclick="selectService('Report a Complaint')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <h3>Complaint Center</h3>
+                <p>Report community issues, grievances, or illegal activities.</p>
+            </div>
+
+            <div class="card service-card" onclick="selectService('General Inquiry')">
+                <div class="icon-box">
+                    <i class="fa-solid fa-circle-question"></i>
+                </div>
+                <h3>General Inquiry</h3>
+                <p>Ask about city programs, schedules, or other concerns.</p>
+            </div>
+
+        </div>
+
+        <div id="application-section" style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow);">
+            <h3><i class="fa-solid fa-pen-to-square"></i> Submit an Inquiry / Request</h3>
+            
+            <form id="service-form">
+                <label>Select Service:</label>
+                <select id="service-type" required>
+                    <option value="" disabled selected>-- Select a Service --</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Business Permit Assistance">Business Permit Assistance</option>
+                    <option value="Building Permit">Building Permit</option>
+                    <option value="Health Certificate">Health Certificate</option>
+                    <option value="Real Property Tax">Real Property Tax</option>
+                    <option value="Report a Complaint">Report a Complaint</option>
+                </select>
+
+                <label>Email Address:</label>
+                <input type="email" id="email" required placeholder="juandelacruz@gmail.com">
+
+                <label>Message / Details:</label>
+                <textarea rows="5" required placeholder="Describe your request here..."></textarea>
+
+                <button type="submit" class="submit-btn" id="btn-submit">
+                    <span id="btn-text">Submit Request</span>
+                    <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <div id="successModal" class="modal-overlay">
+        <div class="modal">
+            <i class="close-modal fa-solid fa-xmark" onclick="closeSuccessModal()"></i>
+            
+            <div style="font-size: 4rem; margin-bottom: 10px; color: #28a745;">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            
+            <h3 style="color: var(--primary-blue);">Request Submitted!</h3>
+            <p>Your request for <strong id="modal-service-name" style="color: var(--accent-yellow);">...</strong> has been successfully received.</p>
+            
+            <div style="background: #f4f6f8; padding: 15px; margin: 20px 0; border-radius: 8px; border: 1px dashed #ccc;">
+                <small>Reference ID:</small><br>
+                <strong id="modal-ref-id" style="font-size: 1.5rem; letter-spacing: 2px;">LOADING</strong>
+            </div>
+
+            <p style="font-size: 0.9rem; color: #666;">A confirmation email has been sent to you.</p>
+            <button class="submit-btn" onclick="closeSuccessModal()">Done</button>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

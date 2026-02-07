@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Announcements | Bacoor City LGU</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/branding/logo.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header id="main-header"></header>
+
+    <main>
+        <h2 class="page-title">City News & Advisories</h2>
+        
+        <div class="search-container">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" id="news-search" class="search-box" placeholder="Search news (e.g. Traffic, Holiday, Suspension)..." onkeyup="filterNews()">
+        </div>
+
+        <div id="news-grid" class="grid">
+            </div>
+    </main>
+
+    <footer id="main-footer"></footer>
+
+    <div id="advisoryModal" class="modal-overlay">
+        <div class="modal">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle" style="color: var(--primary-blue); margin-bottom: 10px;">Official Advisory</h3>
+            <p id="modalBody">This is an official public advisory from the City Government of Bacoor. Please follow health and safety protocols as directed.</p>
+            <button class="submit-btn" onclick="closeModal()">Understood</button>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

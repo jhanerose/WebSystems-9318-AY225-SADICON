@@ -1,0 +1,455 @@
+/* --- 1. FONTS & VARIABLES --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-blue: #003366;    /* Official Govt Blue */
+    --primary-dark: #002244;    /* Darker Blue */
+    --accent-yellow: #F4C430;   /* Bacoor/Ph Flag Yellow */
+    --light-bg: #f4f6f8;
+    --text-main: #2c3e50;
+    --text-light: #607d8b;
+    --white: #ffffff;
+    --shadow: 0 4px 6px rgba(0,0,0,0.08);
+    --shadow-hover: 0 10px 15px rgba(0,0,0,0.12);
+}
+
+/* --- 2. RESET & GLOBAL STYLES --- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif; 
+    background-color: var(--light-bg);
+    color: var(--text-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body.large-text { font-size: 1.25rem; }
+
+a { text-decoration: none; color: inherit; transition: 0.3s ease; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+
+/* --- 3. HEADER & NAVIGATION --- */
+header {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.top-bar {
+    background: var(--primary-dark);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.location-title {
+    font-weight: 800;
+    font-size: 0.9rem;
+    color: var(--accent-yellow);
+    letter-spacing: 1px;
+}
+
+.live-date {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.access-tools button {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    color: white;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.access-tools button:hover {
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    border-color: var(--accent-yellow);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+}
+
+/* Logo Animation (Spin & Pop) */
+@keyframes logoEntry {
+    0% { opacity: 0; transform: scale(0) rotate(-180deg); }
+    100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.header-logo {
+    height: 50px;
+    width: auto;
+    margin-right: 12px;
+    border-radius: 50%;
+    border: 2px solid white;
+    cursor: zoom-in;
+    animation: logoEntry 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: transform 0.6s ease;
+}
+
+.header-logo:hover {
+    transform: rotate(360deg) scale(1.1);
+    box-shadow: 0 0 15px rgba(244, 196, 48, 0.6);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    color: white;
+    line-height: 1;
+}
+
+.logo span { 
+    color: var(--accent-yellow);
+    display: block; 
+    font-size: 0.8em; 
+}
+
+nav ul { display: flex; gap: 20px; }
+
+nav a {
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+nav a:hover, nav a.active {
+    background-color: rgba(255,255,255,0.15);
+    color: var(--accent-yellow);
+}
+
+/* --- 4. LAYOUT & HERO --- */
+main {
+    flex: 1;
+    padding: 3rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-title {
+    border-left: 6px solid var(--accent-yellow);
+    padding-left: 20px;
+    margin-bottom: 2.5rem;
+    color: var(--primary-blue);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.85) 0%, rgba(0, 34, 68, 0.75) 100%), 
+                url('../assets/images/background/bacoorcityhall.JPG');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 5rem 5%;
+    text-align: center;
+    border-radius: 0 0 30px 30px;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+}
+
+.hero h1 { font-size: 3rem; margin-bottom: 15px; font-weight: 800; }
+.hero .btn {
+    display: inline-block;
+    background: var(--accent-yellow);
+    color: var(--primary-blue);
+    padding: 12px 30px;
+    margin-top: 25px;
+    font-weight: 600;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(244, 196, 48, 0.4);
+}
+.hero .btn:hover { transform: translateY(-2px); background: #ffdb4d; }
+
+/* --- 5. GRIDS & CARDS (GLOBAL) --- */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--primary-blue);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; 
+}
+
+.card:hover { 
+    transform: translateY(-7px); 
+    box-shadow: var(--shadow-hover);
+}
+
+.card h3 { color: var(--primary-blue); margin-bottom: 10px; font-weight: 700; }
+.card p { color: var(--text-light); margin-bottom: 15px; }
+
+/* Special Card: Image Top (Home & News) */
+.card-with-img { 
+    padding: 0 !important; 
+    overflow: hidden; 
+    display: flex; 
+    flex-direction: column; 
+}
+
+.card-img { 
+    width: 100%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-bottom: 4px solid var(--accent-yellow); 
+    transition: transform 0.5s ease; 
+}
+
+.card-with-img:hover .card-img { 
+    transform: scale(1.1); 
+}
+
+.card-content { 
+    padding: 1.5rem; 
+    flex: 1; 
+    background: white; 
+    z-index: 2; 
+    position: relative; 
+}
+
+/* UPDATED READ MORE BUTTON */
+.read-more { 
+    color: var(--primary-blue); 
+    font-weight: 700; 
+    margin-top: auto; 
+    display: inline-block; 
+    transition: color 0.3s ease, transform 0.2s ease; /* Smooth color swap */
+}
+
+/* HOVER EFFECT ADDED HERE */
+.read-more:hover { 
+    color: var(--accent-yellow); 
+    transform: translateX(5px); /* Optional: small slide right for effect */
+}
+/* --- 6. FORMS & SEARCH --- */
+.search-container { position: relative; width: 100%; margin-bottom: 30px; }
+.search-icon {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-blue);
+    font-size: 1.1rem;
+    pointer-events: none;
+    z-index: 10;
+}
+.search-box {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #ddd;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+.search-box:focus { border-color: var(--primary-blue); box-shadow: 0 0 0 4px rgba(0, 51, 102, 0.1); }
+
+form { background: var(--white); padding: 2.5rem; border-radius: 12px; box-shadow: var(--shadow); }
+form label { display: block; margin: 15px 0 8px; font-weight: 600; color: var(--primary-blue); }
+form input, form textarea, form select {
+    width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 6px; font-size: 1rem; font-family: inherit;
+}
+button.submit-btn {
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    margin-top: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 6px;
+    width: 100%;
+    transition: background 0.3s;
+}
+button.submit-btn:hover { background-color: var(--primary-dark); }
+
+/* --- 7. PAGE SPECIFIC STYLES --- */
+
+/* A. About Page (Vision/Mission Icons) */
+.icon-card { text-align: center; padding: 3rem 2rem; }
+.icon-circle {
+    width: 80px; height: 80px; background: var(--light-bg); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; margin: 0 auto 1.5rem;
+    border: 3px solid var(--primary-blue); color: var(--primary-blue); font-size: 2rem;
+    transition: all 0.4s ease;
+}
+.icon-card:hover .icon-circle {
+    background: var(--primary-blue); color: var(--accent-yellow);
+    transform: scale(1.2) rotate(10deg); box-shadow: 0 10px 20px rgba(0, 51, 102, 0.3);
+}
+
+/* B. Departments Page */
+#dept-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+.dept-card { padding: 0 !important; overflow: hidden; border: none; }
+.dept-img-wrapper { width: 100%; height: 180px; overflow: hidden; }
+.dept-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+.dept-card:hover .dept-img-wrapper img { transform: scale(1.15); }
+#dept-grid .card { max-width: 400px; margin: 0 auto; }
+
+/* C. News Page */
+#news-grid { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+
+/* D. Services Page (Animations) */
+.services-grid .service-card {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    cursor: pointer; border-left: 5px solid transparent;
+}
+.services-grid .service-card:nth-child(1) { animation-delay: 0.1s; }
+.services-grid .service-card:nth-child(2) { animation-delay: 0.2s; }
+.services-grid .service-card:nth-child(3) { animation-delay: 0.3s; }
+.services-grid .service-card:nth-child(4) { animation-delay: 0.4s; }
+.services-grid .service-card:nth-child(5) { animation-delay: 0.5s; }
+.services-grid .service-card:nth-child(6) { animation-delay: 0.6s; }
+
+.service-card:hover { border-left: 5px solid var(--accent-yellow); transform: translateY(-5px); }
+.icon-box { font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 15px; transition: transform 0.3s ease; }
+.service-card:hover .icon-box { transform: scale(1.15); color: var(--accent-yellow); }
+
+/* E. Contact Page */
+.contact-grid .contact-card {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    text-align: center;
+}
+.contact-grid .contact-card:nth-child(1) { animation-delay: 0.1s; }
+.contact-grid .contact-card:nth-child(2) { animation-delay: 0.2s; }
+.contact-grid .contact-card:nth-child(3) { animation-delay: 0.3s; }
+.contact-card:hover { border-top: 5px solid var(--accent-yellow); }
+.contact-card:hover .icon-box { color: var(--accent-yellow); transform: scale(1.15) rotate(5deg); }
+
+/* F. Home Page (Quick Access) - ADDED THIS SECTION */
+.home-card {
+    opacity: 0; transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.home-card:nth-child(1) { animation-delay: 0.2s; }
+.home-card:nth-child(2) { animation-delay: 0.4s; }
+.home-card:nth-child(3) { animation-delay: 0.6s; }
+.card-content h3 i { margin-right: 10px; color: var(--accent-yellow); }
+
+/* --- 8. ANIMATIONS & MODALS --- */
+@keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+
+/* Button Loading Spinner */
+.btn-loading { position: relative; pointer-events: none; opacity: 0.8; }
+.btn-loading span, .btn-loading i { visibility: hidden; }
+.btn-loading::after {
+    content: ""; position: absolute; width: 20px; height: 20px;
+    top: 50%; left: 50%; margin: -10px;
+    border: 3px solid rgba(255,255,255,0.3); border-top-color: white; border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Generic Modal */
+.modal-overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7); backdrop-filter: blur(2px);
+    display: none; justify-content: center; align-items: center; z-index: 2000;
+}
+.modal {
+    background: white; padding: 2.5rem; max-width: 500px; width: 90%;
+    border-radius: 12px; position: relative; text-align: center;
+    animation: modalPop 0.3s ease;
+}
+@keyframes modalPop { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.8rem; cursor: pointer; color: #999; }
+.close-modal:hover { color: var(--text-main); }
+
+/* Logo Lightbox Modal */
+.logo-modal-overlay {
+    display: none; position: fixed; z-index: 10000; left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); justify-content: center; align-items: center;
+    cursor: zoom-out; backdrop-filter: blur(5px);
+}
+.logo-modal-img {
+    max-width: 80%; max-height: 80%; border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.2); border: 5px solid var(--accent-yellow);
+    animation: zoomModal 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+@keyframes zoomModal { from { transform: scale(0) rotate(-90deg); opacity: 0; } to { transform: scale(1) rotate(0deg); opacity: 1; } }
+
+/* --- 9. FOOTER --- */
+footer {
+    background-color: #1a1a1a; color: #ccc; padding: 3rem 5%;
+    margin-top: auto; text-align: center; border-top: 5px solid var(--accent-yellow);
+}
+
+/* --- 10. MOBILE RESPONSIVE --- */
+@media (max-width: 768px) {
+    .top-bar { flex-direction: column; gap: 10px; text-align: center; }
+    .nav-container { flex-direction: column; gap: 15px; }
+    nav ul { flex-wrap: wrap; justify-content: center; gap: 10px; }
+    .hero { padding: 3rem 1rem; }
+    .hero h1 { font-size: 2rem; }
+    .grid { grid-template-columns: 1fr !important; }
+}
+/* --- ACCESSIBILITY TOOLS --- */
+.access-tools {
+    display: flex;
+    gap: 5px; /* Spacing between buttons */
+}
+
+/* High Contrast Mode Overrides */
+body.high-contrast {
+    --primary-blue: #000000;
+    --primary-dark: #000000;
+    --light-bg: #000000;
+    --white: #000000;
+    --text-main: #ffffff;
+    --text-light: #dddddd;
+    --accent-yellow: #FFFF00; /* Bright Neon Yellow */
+    --shadow: none;
+}
+
+/* Force Borders in High Contrast for visibility */
+body.high-contrast .card, 
+body.high-contrast header, 
+body.high-contrast .top-bar,
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+    border: 2px solid var(--accent-yellow) !important;
+}
+
+body.high-contrast a {
+    text-decoration: underline;
+    color: var(--accent-yellow);
+}
+
+body.high-contrast .btn, 
+body.high-contrast button {
+    background: #000 !important;
+    border: 2px solid var(--accent-yellow) !important;
+    color: var(--accent-yellow) !important;
+}

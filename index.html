@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Bacoor City LGU</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/branding/logo.ico"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="main-header"></header> <section class="hero">
+        <h1>Welcome to the City of Bacoor</h1>
+        <p>Strike as One. Progress for All.</p>
+        <a href="pages/services.html" class="btn">Access Online Services</a>
+    </section>
+
+    <main>
+    <h2 class="page-title">Quick Access</h2>
+    
+    <div class="grid">
+        <div class="card card-with-img home-card">
+            <img src="assets/images/home/news.jpg" alt="News Updates" class="card-img">
+            <div class="card-content">
+                <h3><i class="fa-solid fa-bullhorn"></i> Latest Advisories</h3>
+                <p>Check the latest news and announcements regarding city ordinances.</p>
+                <a href="pages/news.html" class="read-more">Read News &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card card-with-img home-card">
+            <img src="assets/images/home/business.jpg" alt="Business Permit" class="card-img">
+            <div class="card-content">
+                <h3><i class="fa-solid fa-briefcase"></i> Business Permits</h3>
+                <p>Apply for new business permits or renew existing ones online.</p>
+                <a href="pages/services.html" class="read-more">Go to Services &rarr;</a>
+            </div>
+        </div>
+
+        <div class="card card-with-img home-card">
+            <img src="assets/images/home/emergency.jpg" alt="Emergency Response" class="card-img">
+            <div class="card-content">
+                <h3><i class="fa-solid fa-truck-medical"></i> Emergency Hotlines</h3>
+                <p><strong>BDRRMO:</strong> (046) 417-0000<br><strong>PNP Bacoor:</strong> (046) 417-6366</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <div id="homeModal" class="modal-overlay">
+        <div class="modal">
+            <span class="close-modal" onclick="closeHomeModal()">&times;</span>
+            <h2 style="color:var(--accent-yellow)">⚠️ Traffic Advisory</h2>
+            <p>Please expect heavy traffic along Molino Blvd due to the ongoing fun run event this weekend.</p>
+            <button class="submit-btn" onclick="closeHomeModal()">I Understand</button>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="js/script.js"></script>
+</body>
+</html>

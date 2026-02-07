@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Bacoor City LGU</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="../assets/images/branding/logo.ico"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header id="main-header"></header>
+
+    <main>
+        <h2 class="page-title">Contact Us</h2>
+        
+        <div class="grid contact-grid" style="margin-bottom: 3rem;">
+            
+            <div class="card contact-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <h3>Visit Us</h3>
+                <p>Bacoor City Hall,<br>Bacoor Blvd, Bayanan, Bacoor, Cavite</p>
+            </div>
+
+            <div class="card contact-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <h3>Emergency Hotline</h3>
+                <p><strong>161</strong> (Bacoor District)<br>(046) 434-4466</p>
+            </div>
+
+            <div class="card contact-card">
+                <div class="icon-box">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h3>Office Hours</h3>
+                <p>Monday - Friday<br>8:00 AM - 5:00 PM</p>
+            </div>
+        </div>
+
+        <div id="contact-section" style="background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow);">
+            <h3><i class="fa-solid fa-envelope-open-text"></i> Send a Message</h3>
+            
+            <form id="contact-form">
+                <label>Full Name:</label>
+                <input type="text" id="contact-name" required placeholder="Enter your full name">
+
+                <label>Topic / Concern:</label>
+                <select id="contact-topic">
+                    <option>General Inquiry</option>
+                    <option>Public Safety</option>
+                    <option>Social Services</option>
+                    <option>Feedback</option>
+                </select>
+
+                <label>Message:</label>
+                <textarea id="contact-message" rows="5" required placeholder="How can we help you?"></textarea>
+
+                <button type="submit" class="submit-btn" id="btn-contact-submit">
+                    <span id="btn-text">Send Message</span>
+                    <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <div id="contactSuccessModal" class="modal-overlay">
+        <div class="modal">
+            <i class="close-modal fa-solid fa-xmark" onclick="closeContactModal()"></i>
+            
+            <div style="font-size: 4rem; margin-bottom: 10px; color: var(--primary-blue);">
+                <i class="fa-solid fa-envelope-circle-check"></i>
+            </div>
+            
+            <h3 style="color: var(--primary-blue);">Message Sent!</h3>
+            <p>Thank you, <strong id="modal-contact-name" style="color: var(--accent-yellow);">...</strong>.</p>
+            <p>We have received your message regarding <br><strong id="modal-contact-topic">...</strong></p>
+            
+            <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">Our team will respond within 24 hours.</p>
+            <button class="submit-btn" onclick="closeContactModal()">Close</button>
+        </div>
+    </div>
+
+    <footer id="main-footer"></footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>
