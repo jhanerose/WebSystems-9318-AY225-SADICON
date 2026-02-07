@@ -103,7 +103,7 @@ function loadHeader() {
 
     const headerHTML = `
         <div class="top-bar">
-             <div class="date-weather-container">
+            <div class="date-weather-container">
                 <div class="location-title">BACOOR</div>
                 <div class="live-meta" style="display: flex; gap: 10px; align-items: center;">
                     <div id="live-date" class="live-date">Loading...</div>
